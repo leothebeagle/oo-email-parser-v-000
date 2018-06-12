@@ -9,7 +9,13 @@ class EmailParser
   end
 
   def parse
-    @emails.split(/[\s,]+/).uniq
+    emails.split.map do |email|
+      email.split(',')
+    end.flatten.uniq
   end
 
 end
+
+#  def parse this is also an option that is more "elegant" however it took me a long time to come up with this!
+    #@emails.split(/[\s,]+/).uniq
+  #end
